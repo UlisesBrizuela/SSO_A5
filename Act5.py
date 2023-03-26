@@ -23,14 +23,14 @@ class Ui_MainWindow(object):
     
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.setFixedSize(975, 145)
-        MainWindow.setWindowTitle("Act 5 - Administrador de memoria 1")
+        MainWindow.setFixedSize(600, 905)
+        MainWindow.setWindowTitle("ACT5: ADMINISTRADOR DE MEMORIA 1")
         MainWindow.setWindowIcon(QtGui.QIcon(str('./AppIcon.ico')))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
         self.L_1000 = QtWidgets.QLabel(self.centralwidget)
-        self.L_1000.setGeometry(QtCore.QRect(0, 0, 130, 110))
+        self.L_1000.setGeometry(QtCore.QRect(0, 0, 350, 120))
         self.L_1000.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
         self.L_1000.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.L_1000.setFont(self.font_label())
@@ -38,7 +38,7 @@ class Ui_MainWindow(object):
         self.L_1000.setAlignment(QtCore.Qt.AlignCenter)
         
         self.L_400 = QtWidgets.QLabel(self.centralwidget)
-        self.L_400.setGeometry(QtCore.QRect(130, 0, 52, 110))
+        self.L_400.setGeometry(QtCore.QRect(0, 120, 350, 42))
         self.L_400.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
         self.L_400.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.L_400.setFont(self.font_label())
@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         self.L_400.setAlignment(QtCore.Qt.AlignCenter)
 
         self.L_1800 = QtWidgets.QLabel(self.centralwidget)
-        self.L_1800.setGeometry(QtCore.QRect(182, 0, 234, 110))
+        self.L_1800.setGeometry(QtCore.QRect(0, 162, 350, 224))
         self.L_1800.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
         self.L_1800.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.L_1800.setFont(self.font_label())
@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
         self.L_1800.setAlignment(QtCore.Qt.AlignCenter)
 
         self.L_700 = QtWidgets.QLabel(self.centralwidget)
-        self.L_700.setGeometry(QtCore.QRect(416, 0, 91, 110))
+        self.L_700.setGeometry(QtCore.QRect(0, 386, 350, 81))
         self.L_700.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
         self.L_700.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.L_700.setFont(self.font_label())
@@ -62,23 +62,23 @@ class Ui_MainWindow(object):
         self.L_700.setAlignment(QtCore.Qt.AlignCenter)
 
         self.L_900 = QtWidgets.QLabel(self.centralwidget)
-        self.L_900.setGeometry(QtCore.QRect(507, 0, 117, 110))
+        self.L_900.setGeometry(QtCore.QRect(0, 467, 350, 107))
         self.L_900.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
         self.L_900.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.L_900.setFont(self.font_label())
         self.L_900.setText("900 Kb")
         self.L_900.setAlignment(QtCore.Qt.AlignCenter)
 
-        self.L_1200 = QtWidgets.QLabel(self.centralwidget)
-        self.L_1200.setGeometry(QtCore.QRect(624, 0, 156, 110))
-        self.L_1200.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
-        self.L_1200.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.L_1200.setFont(self.font_label())
-        self.L_1200.setText("1200 Kb")
-        self.L_1200.setAlignment(QtCore.Qt.AlignCenter)
+        self.L_1350 = QtWidgets.QLabel(self.centralwidget)
+        self.L_1350.setGeometry(QtCore.QRect(0, 574, 350, 146))
+        self.L_1350.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
+        self.L_1350.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.L_1350.setFont(self.font_label())
+        self.L_1350.setText("1350 Kb")
+        self.L_1350.setAlignment(QtCore.Qt.AlignCenter)
 
         self.L_1500 = QtWidgets.QLabel(self.centralwidget)
-        self.L_1500.setGeometry(QtCore.QRect(780, 0, 195, 110))
+        self.L_1500.setGeometry(QtCore.QRect(0, 720, 350, 185))
         self.L_1500.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
         self.L_1500.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.L_1500.setFont(self.font_label())
@@ -86,29 +86,29 @@ class Ui_MainWindow(object):
         self.L_1500.setAlignment(QtCore.Qt.AlignCenter)
 
         self.B_primer = QtWidgets.QRadioButton(self.centralwidget)
-        self.B_primer.setGeometry(QtCore.QRect(10, 120, 260, 20))
+        self.B_primer.setGeometry(QtCore.QRect(360, 400, 260, 20))
         self.B_primer.setFont(self.font_button())
         self.B_primer.setText("PRIMER AJUSTE")
 
         self.B_mejor = QtWidgets.QRadioButton(self.centralwidget)
-        self.B_mejor.setGeometry(QtCore.QRect(243, 120, 260, 20))
+        self.B_mejor.setGeometry(QtCore.QRect(360, 430, 260, 20))
         self.B_mejor.setFont(self.font_button())
         self.B_mejor.setText("MEJOR AJUSTE")
 
         self.B_peor = QtWidgets.QRadioButton(self.centralwidget)
-        self.B_peor.setGeometry(QtCore.QRect(486, 120, 260, 20))
+        self.B_peor.setGeometry(QtCore.QRect(360, 460, 260, 20))
         self.B_peor.setFont(self.font_button())
         self.B_peor.setText("PEOR AJUSTE")
 
         self.B_siguiente = QtWidgets.QRadioButton(self.centralwidget)
-        self.B_siguiente.setGeometry(QtCore.QRect(729, 120, 260, 20))
+        self.B_siguiente.setGeometry(QtCore.QRect(360, 490, 260, 20))
         self.B_siguiente.setFont(self.font_button())
         self.B_siguiente.setText("SIGUIENTE AJUSTE")
 
         MainWindow.setCentralWidget(self.centralwidget)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-# COLOR GRADIAL PARA TAMAÑO DE ARCHIVO background-color: qlineargradient(spread:pad, x1:0.005, y1:0, x2:1, y2:0, stop:0.5 rgba(0, 27, 255, 255), stop:0.5001 rgba(170, 255, 255, 100));
+# COLOR GRADIAL PARA TAMAÑO DE ARCHIVO background-color: qlineargradient(spread:pad, x1:0.005, y1:0, x2:1, y2:0, stop:0.5 rgba(0, 255, 127, 100), stop:0.5001 rgba(170, 255, 255, 100));
 
 if __name__ == "__main__":
     import sys
