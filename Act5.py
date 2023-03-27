@@ -223,11 +223,6 @@ class Ui_MainWindow(object):
         self.B_siguiente.setFont(self.font_button())
         self.B_siguiente.setText("SIGUIENTE AJUSTE")
 
-        #self.B_reinicio = QtWidgets.QRadioButton(self.centralwidget)
-        #self.B_reinicio.setGeometry(QtCore.QRect(360, 520, 260, 20))
-        #self.B_reinicio.setFont(self.font_button())
-        #self.B_reinicio.setText("REINICIO MEMORIA")
-
         MainWindow.setCentralWidget(self.centralwidget)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -237,7 +232,6 @@ class Ui_MainWindow(object):
         self.B_mejor.toggled.connect(self.mejor)
         self.B_peor.toggled.connect(self.peor)
         self.B_siguiente.toggled.connect(self.siguiente)
-        self.B_reinicio.toggled.connect(self.reinicio)
 
 
 if __name__ == "__main__":
