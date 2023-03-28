@@ -7,6 +7,7 @@ import sys
 
 class Ui_MainWindow(object):
 
+#   INICIALIZA LOS BLOQUES DE MEMORIA Y CREA LA LISTA DE PROCESOS/ARCHIVOS
     def __init__(self) -> None:
         self.memoria = [[1000], [400], [1800], [700], [900], [1200], [1500]]
         self.procesos = []
@@ -71,7 +72,12 @@ class Ui_MainWindow(object):
                     break
         self.gradiente()
 
-    ###############################################  GUI  ##################################################################
+
+############################################################################################################################################################        
+############################################################################################################################################################
+###############################################  GUI  ######################################################################################################
+
+#   CAMBIA LOS COLORES EN GRADIENTE AL FONDE DE LOS LABELS EN GRADO A EL ESPACIO DISPONIBLE QUE TENGA CADA UNO
     def gradiente(self): 
         for i, elemento in enumerate(self.memoria):
             text = ""
@@ -107,6 +113,7 @@ class Ui_MainWindow(object):
                 self.L_1500.setText(text)
                 self.L_1500.setStyleSheet(f"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:{g} rgba(170, 255, 255, 100), stop:{g+0.0001} rgba(0, 255, 127, 100));")      
 
+# REINICIA LOS VALORES DE LA MEMORIA Y LOS COLORES DE LOS LABELS A SUS PREDETERMINADOS
     def reinicio(self):
         self.memoria = [[1000], [400], [1800], [700], [900], [1200], [1500]]
         self.indice = 0
@@ -125,6 +132,7 @@ class Ui_MainWindow(object):
         self.L_1500.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
         self.L_1500.setText("1500 Kb")
         
+#   ESTABLECE LOS TAMAÑOS DE LETRA PARA LOS BOTONES Y LABELS RESPECTIVAMENTE        
     def font_button(self):
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -138,7 +146,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         return font
     
-    
+#   CONFIGURACION GENERAL DE LA INTERFAZ   
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setFixedSize(600, 905)
@@ -147,61 +155,81 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
+
+
+
+        #self.L_1000, self.L_1200, self.L_1500, self.L_1800, self.L_400, self.L_700, self.L_900 = QtWidgets.QLabel(self.centralwidget)
         self.L_1000 = QtWidgets.QLabel(self.centralwidget)
         self.L_1000.setGeometry(QtCore.QRect(0, 0, 350, 120))
-        self.L_1000.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
-        self.L_1000.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.L_1000.setFont(self.font_label())
+        #self.L_1000.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
+        #self.L_1000.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        #self.L_1000.setFont(self.font_label())
         self.L_1000.setText("1000 Kb")
-        self.L_1000.setAlignment(QtCore.Qt.AlignCenter)
+        #self.L_1000.setAlignment(QtCore.Qt.AlignCenter)
         
         self.L_400 = QtWidgets.QLabel(self.centralwidget)
         self.L_400.setGeometry(QtCore.QRect(0, 120, 350, 42))
-        self.L_400.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
-        self.L_400.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.L_400.setFont(self.font_label())
+        #self.L_400.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
+        #self.L_400.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        #self.L_400.setFont(self.font_label())
         self.L_400.setText("400 Kb")
-        self.L_400.setAlignment(QtCore.Qt.AlignCenter)
+        #self.L_400.setAlignment(QtCore.Qt.AlignCenter)
 
         self.L_1800 = QtWidgets.QLabel(self.centralwidget)
         self.L_1800.setGeometry(QtCore.QRect(0, 162, 350, 224))
-        self.L_1800.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
-        self.L_1800.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.L_1800.setFont(self.font_label())
+        #self.L_1800.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
+        #self.L_1800.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        #self.L_1800.setFont(self.font_label())
         self.L_1800.setText("1800 Kb")
-        self.L_1800.setAlignment(QtCore.Qt.AlignCenter)
+        #self.L_1800.setAlignment(QtCore.Qt.AlignCenter)
 
         self.L_700 = QtWidgets.QLabel(self.centralwidget)
         self.L_700.setGeometry(QtCore.QRect(0, 386, 350, 81))
-        self.L_700.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
-        self.L_700.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.L_700.setFont(self.font_label())
+        #self.L_700.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
+        #self.L_700.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        #self.L_700.setFont(self.font_label())
         self.L_700.setText("700 Kb")
-        self.L_700.setAlignment(QtCore.Qt.AlignCenter)
+        #self.L_700.setAlignment(QtCore.Qt.AlignCenter)
 
         self.L_900 = QtWidgets.QLabel(self.centralwidget)
         self.L_900.setGeometry(QtCore.QRect(0, 467, 350, 107))
-        self.L_900.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
-        self.L_900.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.L_900.setFont(self.font_label())
+        #self.L_900.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
+        #self.L_900.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        #self.L_900.setFont(self.font_label())
         self.L_900.setText("900 Kb")
-        self.L_900.setAlignment(QtCore.Qt.AlignCenter)
+        #self.L_900.setAlignment(QtCore.Qt.AlignCenter)
 
         self.L_1200 = QtWidgets.QLabel(self.centralwidget)
         self.L_1200.setGeometry(QtCore.QRect(0, 574, 350, 146))
-        self.L_1200.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
-        self.L_1200.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.L_1200.setFont(self.font_label())
+        #self.L_1200.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
+        #self.L_1200.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        #self.L_1200.setFont(self.font_label())
         self.L_1200.setText("1200 Kb")
-        self.L_1200.setAlignment(QtCore.Qt.AlignCenter)
+        #self.L_1200.setAlignment(QtCore.Qt.AlignCenter)
 
         self.L_1500 = QtWidgets.QLabel(self.centralwidget)
         self.L_1500.setGeometry(QtCore.QRect(0, 720, 350, 185))
-        self.L_1500.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
-        self.L_1500.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.L_1500.setFont(self.font_label())
+        #self.L_1500.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
+        #self.L_1500.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        #self.L_1500.setFont(self.font_label())
         self.L_1500.setText("1500 Kb")
-        self.L_1500.setAlignment(QtCore.Qt.AlignCenter)
+        #self.L_1500.setAlignment(QtCore.Qt.AlignCenter)
+
+        Labels = [self.L_1000, self.L_1200, self.L_1500, self.L_1800, self.L_400, self.L_700, self.L_900]
+        for label in Labels:
+            #label.QtWidgets.QLabel(self.centralwidget)
+            label.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
+            label.setFrameShape(QtWidgets.QFrame.StyledPanel)
+            label.setFont(self.font_label())
+            label.setAlignment(QtCore.Qt.AlignCenter)
+
+
+
+
+
+
+
+
 
         self.B_primer = QtWidgets.QRadioButton(self.centralwidget)
         self.B_primer.setGeometry(QtCore.QRect(360, 400, 260, 20))
