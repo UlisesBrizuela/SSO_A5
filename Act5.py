@@ -24,16 +24,21 @@ class Ui_MainWindow(object):
     def primera(self):
         self.reinicio()
         for proceso in self.procesos:
+            almacenado = False
             for i, element in enumerate(self.memoria):
                 if proceso[1] < element[0]:
                     self.memoria[i][0] -= proceso[1]
                     self.memoria[i].append(proceso)
+                    almacenado = True
                     break
+            if not almacenado:
+                self.T_log.append(f'Error: PRIMERA SELECCION no puede almacenar: {proceso[0]} {proceso[1]} Kb. \nNo hay suficiente espacio\n')
         self.gradiente()
 
     def mejor(self):
         self.reinicio()
         for proceso in self.procesos:
+            almacenado = False
             mejor = None
             for i, elemento in enumerate(self.memoria):
                 if proceso[1] <=elemento[0] and (mejor is None or elemento[0] < self.memoria[mejor][0]):
@@ -42,11 +47,15 @@ class Ui_MainWindow(object):
             if mejor is not None:
                 self.memoria[mejor][0] -= proceso[1]
                 self.memoria[mejor].append(proceso)
+                almacenado = True
+            if not almacenado:
+                self.T_log.append(f'Error: MEJOR SELECCION no puede almacenar: {proceso[0]} {proceso[1]} Kb. \nNo hay suficiente espacio\n')
         self.gradiente()
 
     def peor(self):
         self.reinicio()
         for proceso in self.procesos:
+            almacenado = False
             mayor = 0
             indice = None
             for i, elemento in enumerate(self.memoria):
@@ -57,12 +66,16 @@ class Ui_MainWindow(object):
             if indice is not None:
                 self.memoria[indice][0] -= proceso[1]
                 self.memoria[indice].append(proceso)
+                almacenado = True
+            if not almacenado:
+                self.T_log.append(f'Error: PEOR SELECCION no puede almacenar: {proceso[0]} {proceso[1]} Kb. \nNo hay suficiente espacio\n')
         self.gradiente()
 
 
     def siguiente(self):
         self.reinicio()
         for proceso in self.procesos:
+            almacenado = False
             for i in range(len(self.memoria)):
                 indice_actual = (i + self.indice) % len(self.memoria)
                 bloque = self.memoria[indice_actual]
@@ -70,8 +83,11 @@ class Ui_MainWindow(object):
                 if proceso[1] <= bloque[0]:
                     self.memoria[indice_actual][0] -= proceso[1]
                     self.memoria[indice_actual].append(proceso)
+                    almacenado = True
                     self.indice = indice_actual
                     break
+            if not almacenado:
+                self.T_log.append(f'Error: SIGUIENTE SELECCION no puede almacenar: {proceso[0]} {proceso[1]} Kb. \nNo hay suficiente espacio\n')
         self.gradiente()
 
 
@@ -119,6 +135,7 @@ class Ui_MainWindow(object):
     def reinicio(self):
         self.memoria = [[1000], [400], [1800], [700], [900], [1200], [1500]]
         self.indice = 0
+        self.T_log.setText('')
         self.L_1000.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
         self.L_1000.setText("1000 Kb")
         self.L_400.setStyleSheet("background-color: rgba(170, 255, 255, 100);")
@@ -187,6 +204,16 @@ class Ui_MainWindow(object):
         self.L_1500 = QtWidgets.QLabel(self.centralwidget)
         self.L_1500.setGeometry(QtCore.QRect(0, 720, 350, 185))
         self.L_1500.setText("1500 Kb")
+
+#       CUADRO DE TEXTO PARA LOG DE ERRORES
+        self.L_log = QtWidgets.QLabel(self.centralwidget)
+        self.L_log.setGeometry(QtCore.QRect(360, 550, 260, 20))
+        self.L_log.setText('=========== LOG ===========')
+        self.L_log.setFont(self.font_label())
+        
+        self.T_log = QtWidgets.QTextBrowser(self.centralwidget)
+        self.T_log.setGeometry(QtCore.QRect(355,570,240,330))
+        self.T_log.setFont(self.font_label())
 
 #       DECLARACION DE LOS ATRIBUTOS VISUALES COMPARTIDOS DE TODOS LOS LABELS
         Labels = [self.L_1000, self.L_1200, self.L_1500, self.L_1800, self.L_400, self.L_700, self.L_900]
